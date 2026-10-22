@@ -3,7 +3,7 @@ services:
     build: .
     entrypoint:
       - /bin/bash
-    image: ghcr.io/informatica-na-presales-ops/databricks-sql-scripts
+    image: ghcr.io/williamjacksn/databricks-sql-scripts
     init: true
     volumes:
       - ./:/app
