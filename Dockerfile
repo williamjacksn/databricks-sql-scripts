@@ -2,11 +2,10 @@ FROM ghcr.io/astral-sh/uv:0.13.0-trixie-slim
 
 RUN /usr/sbin/useradd --create-home --shell /bin/bash --user-group python
 
+# required for psycopg2
 ARG DEBIAN_FRONTEND=noninteractive
 RUN /usr/bin/apt-get update \
- && /usr/bin/apt-get install --assume-yes \
-    	# required for psycopg2
-        postgresql-common \
+ && /usr/bin/apt-get install --assume-yes postgresql-common \
  && rm -rf /var/lib/apt/lists/*
 
 USER python
@@ -28,4 +27,4 @@ COPY --chown=python:python get-iics-user-weekly-logins.py ./
 COPY --chown=python:python get-iics-user-roles.py ./
 COPY --chown=python:python get-iics-users.py ./
 
-LABEL org.opencontainers.image.source="https://github.com/informatica-na-presales-ops/databricks-sql-scripts"
+LABEL org.opencontainers.image.source="https://github.com/williamjacksn/databricks-sql-scripts"

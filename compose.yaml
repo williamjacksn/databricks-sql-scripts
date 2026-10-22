@@ -1,5 +1,6 @@
 services:
   shell:
+    build: .
     entrypoint:
       - /bin/bash
     image: ghcr.io/informatica-na-presales-ops/databricks-sql-scripts
