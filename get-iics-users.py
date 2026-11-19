@@ -1,4 +1,4 @@
-import datetime
+import datetime as dt
 import logging
 import os
 import signal
@@ -27,7 +27,7 @@ def main_job(repeat_interval_hours: int | None = None) -> None:
 
     updated_at_start = pg.data_lake_postgres.get_iics_users_max_updated_at(pg_cnx)
     if updated_at_start is None:
-        updated_at_start = datetime.datetime(2000, 1, 1, tzinfo=datetime.UTC)
+        updated_at_start = dt.datetime(2000, 1, 1, tzinfo=dt.UTC)
 
     records = []
     total = 0
